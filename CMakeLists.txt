@@ -285,6 +285,8 @@ else(ROS_EDITION STREQUAL "ROS2")
   if(DISTRO_ROS STREQUAL "humble" OR DISTRO_ROS STREQUAL "jazzy")
     rosidl_get_typesupport_target(cpp_typesupport_target
     ${LIVOX_INTERFACES} "rosidl_typesupport_cpp")
+    set(LIVOX_INTERFACE_TARGET "${cpp_typesupport_target}")
+    set(LIVOX_INTERFACES_INCLUDE_DIRECTORIES "")
     target_link_libraries(${PROJECT_NAME} "${cpp_typesupport_target}")
   else()
     set(LIVOX_INTERFACE_TARGET "${LIVOX_INTERFACES}__rosidl_typesupport_cpp")
